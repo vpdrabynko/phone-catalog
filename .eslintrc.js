@@ -2,6 +2,7 @@ module.exports = {
   extends: [
     '@mate-academy/eslint-config-react-typescript',
     'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
   ],
   rules: {
     // React
