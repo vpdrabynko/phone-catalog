@@ -77,6 +77,13 @@
   height: 65px;
   border-right: 1px solid $elementsColor;
   border-left: 1px solid $elementsColor;
+  &:hover {
+    cursor: pointer;
+    color: $mainColor;
+    border-left: 1px solid $mainColor;
+    border-right: 1px solid $mainColor;
+    border-bottom: 1px solid $mainColor;
+  }
 }
 
 .icon {

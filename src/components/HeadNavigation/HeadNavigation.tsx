@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import './HeadNavigation.scss';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 
 import logo from '../../Icons/logo.svg';
@@ -23,6 +25,16 @@ export const HeadNavigation: React.FC<Props> = ({
     { to: '/tablets', text: 'tablets' },
     { to: '/accessories', text: 'accessories' },
   ];
+
+  const navigate = useNavigate();
+
+  const handleClickFav = () => {
+    navigate('/favorites');
+  };
+
+  const handleClickBag = () => {
+    navigate('/shoppingBag');
+  };
 
   return (
     <div className="head-navigation">
@@ -48,8 +60,7 @@ export const HeadNavigation: React.FC<Props> = ({
 
       <div className="head-navigation__left">
         <Search />
-
-        <div className="elements-border">
+        <div className="elements-border" onClick={handleClickFav}>
           <NavLink
             to="/favorites"
             className={({ isActive }) => classNames('icon icon--fav', {
@@ -62,7 +73,7 @@ export const HeadNavigation: React.FC<Props> = ({
           </NavLink>
         </div>
 
-        <div className="elements-border">
+        <div className="elements-border" onClick={handleClickBag}>
           <NavLink
             to="/shoppingBag"
             className={({ isActive }) => classNames('icon icon--bag', {

@@ -1,4 +1,5 @@
 import './Bottom.scss';
+import { useEffect } from 'react';
 import classNames from 'classnames';
 import leftArrow from '../../Icons/arrow-left-black.svg';
 import rightArrow from '../../Icons/arrow-right-black.svg';
@@ -42,6 +43,10 @@ export const Bottom: React.FC<Props> = ({
   if (endPage - startPage + 1 < maxPagesToShow) {
     startPage = Math.max(1, endPage - maxPagesToShow + 1);
   }
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPage]);
 
   return (
     <div className="bottom">

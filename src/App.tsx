@@ -37,6 +37,7 @@ const visibleLikedPhones = (query: string, phones: Phone[]) => {
 const App = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [likedProducts, setLikedProducts] = useLocalStorage(
     [], 'likedProducts',
   );
@@ -46,11 +47,16 @@ const App = () => {
 
   const loadProducts = async () => {
     setIsLoading(true);
+    setError(null);
+
+    await new Promise(resolve => setTimeout(resolve, 300));
 
     try {
       const productsFromServer = await getPhones();
 
       setPhones(productsFromServer);
+    } catch {
+      setError('Error loading products. Please try again later.');
     } finally {
       setIsLoading(false);
     }
@@ -74,9 +80,15 @@ const App = () => {
         cartProducts={cartProducts}
       />
 
-      {(isLoading) ? <Loader /> : (
-        <>
-          <div className="main">
+      {error && (
+        <div className="error-message">{error}</div>
+      )}
+
+      {!error && (
+        <div className="main">
+          {isLoading ? (
+            <Loader />
+          ) : (
             <Routes>
               <Route
                 path="/"
@@ -174,8 +186,8 @@ const App = () => {
                 }
               />
             </Routes>
-          </div>
-        </>
+          )}
+        </div>
       )}
 
       <FootNavigation />

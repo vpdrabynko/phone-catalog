@@ -1,10 +1,12 @@
-import { useState } from 'react';
 import cross from '../../Icons/closeBlack.svg';
 import './CheckoutModal.scss';
 
-export const CheckoutModal = () => {
-  const [isOpen, setIsOpen] = useState(true);
+type Props = {
+  isOpen: boolean;
+  onClose: () => void;
+};
 
+export const CheckoutModal:React.FC<Props> = ({ isOpen, onClose }) => {
   return (
     <>
       {isOpen && (
@@ -13,7 +15,7 @@ export const CheckoutModal = () => {
             <button
               type="button"
               className="modal__button"
-              onClick={() => setIsOpen(false)}
+              onClick={onClose}
             >
               <img src={cross} alt="cross" className="modal__image" />
             </button>

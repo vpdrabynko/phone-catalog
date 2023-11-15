@@ -1,6 +1,8 @@
 @import "../../utils/variables.scss";
 
 .footer {
+  margin-top: auto;
+
   &__content {
     border-top: 1px solid $elementsColor;
     display: flex;

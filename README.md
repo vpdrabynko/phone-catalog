@@ -12,22 +12,22 @@ A single-page application implements online store functionality. User can browse
 # Technologies used
 - React.js
 - React Router(v6)
+- Redux
 - TypeScript
 - JavaScript
 - Fetch, API
 - Sass (SCSS)
-- CSS Modules
 - BEM methodology
 
 # Structure
 App is built using functional components and React Hooks.
-Each component is abstract and fully reusable. Components are styled using Sass (SCSS) and CSS Modules.
+Each component is abstract and fully reusable. Components are styled using Sass (SCSS).
 BEM methodology is used for naming and styling.
 
 # Features & Functionality
 
 ## App 
-- App is responsive and works on all screen sizes.
+- App is adapted for use on desktop.
 - Navigation is implemented using React Router.
 
 ## Home page
@@ -71,8 +71,9 @@ BEM methodology is used for naming and styling.
 Building this online gadgets store application was a valuable learning experience. It involved working with a range of modern web development technologies and best practices. Here are some key takeaways:
 
 - React.js and React Router (v6): Utilizing React and React Router allowed for a structured and efficient development process. The use of React Hooks in functional components contributed to the application's modularity.
+- This project uses the Redux Toolkit to manage application state.
 - TypeScript: TypeScript proved to be a robust choice for this project, as it enhanced code quality and helped catch errors during development.
-- Styling with Sass and CSS Modules: Styling components with Sass and CSS Modules facilitated the maintenance and modularity of the codebase. The BEM methodology further ensured a clean and organized CSS structure.
+- Components was styled with Sass. The BEM methodology further ensured a clean and organized CSS structure.
 - API Integration: Fetching data from a remote server using JavaScript's Fetch and working with API endpoints is a fundamental skill in modern web development. It was essential to enable features like product fetching and user interaction.
 - Local Storage: Implementing local storage for the cart and favorites allowed for a persistent shopping experience, even after refreshing the page.
 - Responsive Design: Ensuring that the application is fully responsive and works seamlessly on different screen sizes is vital for a great user experience.

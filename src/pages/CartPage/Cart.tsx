@@ -146,7 +146,7 @@ export const Cart: React.FC<Props> = ({ cartProducts, setCartProducts }) => {
                     </button>
                   </div>
 
-                  {modal && <CheckoutModal />}
+                  {modal && <CheckoutModal isOpen={modal} onClose={() => setModal(false)} />}
                 </div>
               </>
             )}
