@@ -26,6 +26,15 @@ export const Search: React.FC = () => {
     dispatch(setResults([]));
   }, [location.pathname, dispatch]);
 
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const queryParam = searchParams.get('search') || '';
+
+    if (queryParam !== searchQuery) {
+      dispatch(setQuery(queryParam));
+    }
+  }, [location.search, searchQuery, dispatch]);
+
   if (!showSearch) {
     return null;
   }
@@ -53,13 +62,19 @@ export const Search: React.FC = () => {
     const query = event.target.value.trim().toLowerCase();
 
     dispatch(setQuery(query));
-    navigate(`${location.pathname}?search=${query}`);
+
+    if (query) {
+      navigate(`${location.pathname}?search=${query}`);
+    } else {
+      navigate(location.pathname);
+    }
   };
 
   const handleClearSearch = () => {
     dispatch(setQuery(''));
     dispatch(setResults([]));
     inputRef.current?.focus();
+    navigate(location.pathname);
   };
 
   const handleDivClick = () => {
